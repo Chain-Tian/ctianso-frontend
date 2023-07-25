@@ -21,6 +21,9 @@
       <a-tab-pane key="video" tab="视频">
         <VideoList :video-list="videoList" />
       </a-tab-pane>
+      <a-tab-pane key="api" tab="Api">
+        <MyApi :api-list="apiList" />
+      </a-tab-pane>
     </a-tabs>
   </div>
 </template>
@@ -34,11 +37,13 @@ import MyDivider from "@/components/MyDivider.vue";
 import { useRoute, useRouter } from "vue-router";
 import myAxios from "@/plugins/myAxios";
 import { message } from "ant-design-vue";
+import MyApi from "@/components/MyApi.vue";
 
 const postList = ref([]);
 const userList = ref([]);
 const pictureList = ref([]);
 const videoList = ref([]);
+const apiList = ref([]);
 
 const router = useRouter();
 const route = useRoute();
@@ -76,6 +81,8 @@ const loadData = (params: any) => {
       pictureList.value = res.dataList;
     } else if (type === "video") {
       videoList.value = res.dataList;
+    } else if (type === "api") {
+      apiList.value = res.dataList;
     }
   });
 };

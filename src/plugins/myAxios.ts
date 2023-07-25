@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://so.ctian-api.xyz:8101/api",
+  baseURL: "http://127.0.0.1:8101/api",
   timeout: 60000,
   headers: {},
 });
